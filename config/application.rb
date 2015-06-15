@@ -20,6 +20,13 @@ module AngularWithRails
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # BOWER configuration. "Since vendor/assets/bower_components isn't Rails standard, you'll need
+    # to add it to the asset path so these files get picked up."
+
+    config.assets.paths << Rails.root.join("vendor","assets","bower_components")
+    config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
+    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
